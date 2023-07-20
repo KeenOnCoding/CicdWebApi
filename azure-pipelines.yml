@@ -19,11 +19,12 @@ steps:
   inputs:
     command: restore
     projects: '**/*.csproj'
-    feedsToUse: 'select'
+    feedsToUse: config
+    nugetConfigPath: NuGet.config
 
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
     command: build
     projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration)' # Update this to match your need
+    arguments: '--configuration $(buildConfiguration)'
