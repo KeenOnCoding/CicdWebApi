@@ -14,6 +14,7 @@ steps:
     version: 7.x
     performMultiLevelLookup: true
     includePreviewVersions: true # Required for preview versions
+
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
@@ -27,7 +28,9 @@ steps:
     command: build
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
+
 - task: DotNetCoreCLI@2
+  displayName: Publish
   inputs:
     command: publish
     publishWebProjects: True
